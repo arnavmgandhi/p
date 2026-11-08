@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="avatarBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#1e2030"/>
+      <stop offset="100%" stop-color="#0e1017"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="320" rx="24" fill="url(#avatarBg)"/>
+  <circle cx="160" cy="115" r="48" fill="#181926" stroke="url(#avatarGrad)" stroke-width="2.5"/>
+  <path d="M160 85 C146 85 136 96 136 112 C136 128 146 138 160 138 C174 138 184 128 184 112 C184 96 174 85 160 85 Z" fill="url(#avatarGrad)" opacity="0.9"/>
+  <path d="M100 240 C100 195 125 180 160 180 C195 180 220 195 220 240" fill="none" stroke="url(#avatarGrad)" stroke-width="3" stroke-linecap="round"/>
+  <rect x="75" y="265" width="170" height="26" rx="13" fill="#181926" stroke="rgba(255,255,255,0.08)"/>
+  <text x="160" y="282" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">Photo Placeholder</text>
+</svg>

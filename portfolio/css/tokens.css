@@ -1,0 +1,77 @@
+/**
+ * DESIGN TOKENS
+ * Warm paper + ink palette, one restrained accent, serif/sans pairing.
+ * Light is the default; dark follows the system or the manual toggle.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: #f1eee7;
+  --bg-sunk: #e8e4da;
+  --ink: #16140f;
+  --ink-soft: #3a372f;
+  --muted: #6d675b;
+  --rule: rgba(22, 20, 15, 0.16);
+  --rule-strong: rgba(22, 20, 15, 0.42);
+  --accent: #a9321a;
+  --accent-ink: #f1eee7;
+  --grain-opacity: 0.05;
+
+  /* Type */
+  --font-display: 'Young Serif', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Hanken Grotesk', 'Helvetica Neue', Arial, system-ui, sans-serif;
+
+  --fs-micro: 0.72rem;
+  --fs-small: 0.875rem;
+  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --fs-lead: clamp(1.35rem, 1.05rem + 1.3vw, 2.15rem);
+  --fs-h2: clamp(2.4rem, 1.4rem + 3.6vw, 4.5rem);
+  --fs-h1: clamp(2.6rem, 1rem + 5.4vw, 5.9rem);
+  --fs-mega: clamp(1.45rem, 0.5rem + 4.6vw, 4rem);
+
+  /* Layout */
+  --max: 1360px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --header-h: 68px;
+  --section-pad: clamp(5rem, 11vw, 10rem);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 180ms;
+  --t-base: 420ms;
+  --t-slow: 900ms;
+}
+
+/* Dark: follows system unless the visitor has chosen a theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #12110e;
+    --bg-sunk: #1a1915;
+    --ink: #ece7db;
+    --ink-soft: #cfc9ba;
+    --muted: #958f80;
+    --rule: rgba(236, 231, 219, 0.16);
+    --rule-strong: rgba(236, 231, 219, 0.4);
+    --accent: #e4694a;
+    --accent-ink: #12110e;
+    --grain-opacity: 0.07;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #12110e;
+  --bg-sunk: #1a1915;
+  --ink: #ece7db;
+  --ink-soft: #cfc9ba;
+  --muted: #958f80;
+  --rule: rgba(236, 231, 219, 0.16);
+  --rule-strong: rgba(236, 231, 219, 0.4);
+  --accent: #e4694a;
+  --accent-ink: #12110e;
+  --grain-opacity: 0.07;
+}

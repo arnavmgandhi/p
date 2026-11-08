@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <meta name="theme-color" content="#f1eee7">
+  <title>Offline | Arnav</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .status-page { min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding-block: 2rem; }
+    .status-main { margin-block: auto; padding-block: 4rem; }
+    .status-code { display: block; margin-bottom: 1.5rem; }
+    .status-title { font-size: var(--fs-h1); letter-spacing: -0.03em; line-height: 0.98; max-width: 12ch; }
+    .status-title .accent-s { color: var(--accent); }
+    .status-desc { max-width: 42ch; margin: 2rem 0 2.5rem; color: var(--ink-soft); }
+  </style>
+</head>
+<body>
+  <div class="status-page container">
+    <a href="./" class="nav-brand">Arnav</a>
+    <main class="status-main">
+      <span class="status-code label" style="font-size:1rem">Offline</span>
+      <h1 class="status-title">You&rsquo;re <span class="accent-s">offline</span> right now.</h1>
+      <p class="status-desc">This page needs a connection. Anything you&rsquo;ve already opened is still available. Reconnect and try again.</p>
+      <a href="./" class="btn" onclick="location.reload();return false;">Try again <span class="arrow" aria-hidden="true">&nearr;</span></a>
+    </main>
+    
+  </div>
+</body>
+</html>

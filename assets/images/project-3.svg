@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360">
+  <defs>
+    <linearGradient id="p3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="#0d0f17"/>
+  <!-- UI Window Header -->
+  <rect width="600" height="36" fill="#141622"/>
+  <circle cx="24" cy="18" r="5" fill="#EF4444"/>
+  <circle cx="40" cy="18" r="5" fill="#F59E0B"/>
+  <circle cx="56" cy="18" r="5" fill="#10B981"/>
+  <rect x="200" y="10" width="200" height="16" rx="8" fill="#1e2030"/>
+  <text x="300" y="22" fill="#6B7280" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">nlp-keyword-visualizer.app</text>
+  <!-- Bar chart / visualizer elements -->
+  <rect x="100" y="210" width="40" height="60" rx="4" fill="#8B5CF6" opacity="0.7"/>
+  <rect x="160" y="150" width="40" height="120" rx="4" fill="url(#p3Grad)"/>
+  <rect x="220" y="180" width="40" height="90" rx="4" fill="#8B5CF6" opacity="0.8"/>
+  <rect x="280" y="120" width="40" height="150" rx="4" fill="#22D3EE"/>
+  <rect x="340" y="160" width="40" height="110" rx="4" fill="url(#p3Grad)"/>
+  <rect x="400" y="190" width="40" height="80" rx="4" fill="#8B5CF6" opacity="0.6"/>
+  <rect x="460" y="230" width="40" height="40" rx="4" fill="#374151"/>
+  <!-- Line overlay -->
+  <path d="M120 200 L180 140 L240 170 L300 110 L360 150 L420 180 L480 220" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="210" y="295" width="180" height="28" rx="6" fill="#181a28" stroke="rgba(139,92,246,0.3)"/>
+  <text x="300" y="313" fill="#A78BFA" font-family="'Inter', sans-serif" font-size="12" font-weight="600" text-anchor="middle">NLP &amp; Data Insights</text>
+</svg>

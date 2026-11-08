@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    /* Set theme + js flag before first paint to avoid a flash */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try { var t = localStorage.getItem('theme'); if (t) d.setAttribute('data-theme', t); } catch (e) { }
+    })();
+  </script>
+
+  <title>Arnav | Frontend Developer in Pune</title>
+  <meta name="description"
+    content="Arnav is a frontend developer and first-year Computer Science & Engineering student at MIT-WPU, Pune. Open to internships and freelance work.">
+  <meta name="author" content="Arnav">
+  <meta name="theme-color" content="#f1eee7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12110e" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://arnav-portfolio.netlify.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arnav-portfolio.netlify.app/">
+  <meta property="og:title" content="Arnav | Frontend Developer in Pune">
+  <meta property="og:description"
+    content="Frontend developer and CSE student at MIT-WPU. Open to internships and freelance work.">
+  <meta property="og:image" content="/assets/icons/icon-512.svg">
+  <meta property="og:site_name" content="Arnav">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Arnav | Frontend Developer in Pune">
+  <meta name="twitter:description"
+    content="Frontend developer and CSE student at MIT-WPU. Open to internships and freelance work.">
+  <meta name="twitter:image" content="/assets/icons/icon-512.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://arnav-portfolio.netlify.app/#person",
+        "name": "Arnav",
+        "jobTitle": "Frontend Developer",
+        "affiliation": { "@type": "EducationalOrganization", "name": "MIT World Peace University (MIT-WPU)" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressCountry": "IN" },
+        "url": "https://arnav-portfolio.netlify.app/",
+        "email": "arnavmgandhi@gmail.com",
+        "sameAs": ["https://github.com/arnavmgandhi", "https://www.linkedin.com/in/arnavmgandhi/"],
+        "knowsAbout": ["HTML5", "CSS3", "JavaScript", "GSAP", "Progressive Web Apps", "UI design"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://arnav-portfolio.netlify.app/#website",
+        "url": "https://arnav-portfolio.netlify.app/",
+        "name": "Arnav",
+        "publisher": { "@id": "https://arnav-portfolio.netlify.app/#person" }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.svg">
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Young+Serif&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Arnav, home">Arnav</a>
+
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#practice" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Work</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span class="theme-toggle-dot" aria-hidden="true"></span><span class="theme-toggle-text">Dark</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      </div>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+      <div class="mobile-nav-links">
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#practice" class="mobile-nav-link">Skills</a>
+        <a href="#projects" class="mobile-nav-link">Work</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+
+    <section id="hero" class="section hero-section" aria-label="Introduction">
+      <div class="container">
+        <div class="hero-title-row">
+          <h1 class="hero-name split">Hello everyone, <span class="accent">I&rsquo;m Arnav.</span></h1>
+          <img class="pixel-buddy ramen-buddy" src="assets/characters/ramen.png" alt="Pixel-art character eating ramen"
+            width="240" height="240">
+        </div>
+
+        <div class="hero-foot">
+          <p class="hero-intro" data-reveal>
+            I&rsquo;m Arnav, a Computer Science &amp; Engineering student at MIT-WPU in Pune.
+            I&rsquo;m open to internships and freelance work.
+          </p>
+          <div class="hero-cta-group" data-reveal style="--d:120ms">
+            <a href="#projects" class="btn">See my work <span class="arrow-down" aria-hidden="true">&darr;</span></a>
+            <a href="#contact" class="link">Get in touch <span class="arrow" aria-hidden="true">&nearr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Frontend</span><i></i><span>Responsive</span><i></i><span>Motion</span><i></i><span>Accessible</span><i></i><span>Offline-first</span><i></i>
+        <span>Frontend</span><i></i><span>Responsive</span><i></i><span>Motion</span><i></i><span>Accessible</span><i></i><span>Offline-first</span><i></i>
+      </div>
+    </div>
+
+    <section id="about" class="section" aria-label="About">
+      <div class="container section-grid">
+        <div class="section-left-col">
+          <h2 class="section-title split">About</h2>
+          <img class="pixel-buddy about-buddy" src="assets/characters/reader.svg"
+            alt="Pixel-art character reading a book" loading="lazy">
+        </div>
+        <div>
+          <p class="about-lead" data-reveal>
+            I like the part of frontend work where layout, type and motion have to agree with each other, and the page
+            still loads fast on a cheap phone.
+          </p>
+          <div class="about-body" data-reveal>
+            <p>I&rsquo;m studying in Computer Science &amp; Engineering at MIT-WPU. I learn by building
+              things people can click, resize and break, so most of what I know came from shipping small projects and
+              fixing them.</p>
+            <p>Lately that means a club website with member and admin logins, a browser game, and offline-capable web
+              apps. I care about readable code, accessible markup, and being straight about what I know well and what
+              I&rsquo;m still learning.</p>
+          </div>
+          <dl class="facts" data-reveal>
+            <div class="fact">
+              <dt>Programme</dt>
+              <dd>studying Computer Science &amp; Engineering</dd>
+            </div>
+            <div class="fact">
+              <dt>Institution</dt>
+              <dd>MIT World Peace University, Pune</dd>
+            </div>
+           
+             
+          
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="practice" class="section" aria-label="Skills">
+      <div class="container section-grid">
+        <div class="section-left-col">
+          <h2 class="section-title split">Skills</h2>
+          <img class="pixel-buddy skills-buddy" src="assets/characters/wizard.svg"
+            alt="Pixel-art wizard character holding a magic wand" loading="lazy">
+        </div>
+        <div class="skills-wrap">
+          <ul class="skill-list">
+            <li class="skill-row" data-reveal>
+              <h3 class="skill-name">Frontend</h3>
+              <p class="skill-desc">Semantic HTML5, CSS custom properties, modular ES6+ JavaScript and small reusable
+                components.</p>
+            </li>
+            <li class="skill-row" data-reveal>
+              <h3 class="skill-name">Interface design</h3>
+              <p class="skill-desc">Mobile-first layouts, readable typography, accessible contrast and interactions that
+                stay out of the way.</p>
+            </li>
+            <li class="skill-row" data-reveal>
+              <h3 class="skill-name">Motion</h3>
+              <p class="skill-desc">Timeline animation with GSAP, scroll-triggered reveals and light touches with
+                Anime.js.</p>
+            </li>
+            <li class="skill-row" data-reveal>
+              <h3 class="skill-name">Interactive</h3>
+              <p class="skill-desc">Canvas drawing, pointer tracking, momentum scrolling with Lenis and responsive
+                feedback.</p>
+            </li>
+            <li class="skill-row" data-reveal>
+              <h3 class="skill-name">Offline web apps</h3>
+              <p class="skill-desc">Web app manifests, service worker caching and installable, offline-ready PWAs.</p>
+            </li>
+            <li class="skill-row" data-reveal>
+              <h3 class="skill-name">Problem solving</h3>
+              <p class="skill-desc">Debugging in browser devtools, cross-device testing, algorithm basics and clean code
+                habits.</p>
+            </li>
+          </ul>
+          <dl class="facts toolkit" data-reveal>
+            <div class="fact">
+              <dt>Languages</dt>
+              <dd>HTML, CSS, JavaScript, plus basic Python and SQL</dd>
+            </div>
+            <div class="fact">
+              <dt>Libraries</dt>
+              <dd>GSAP and ScrollTrigger, Lenis, Anime.js</dd>
+            </div>
+            <div class="fact">
+              <dt>Tools</dt>
+              <dd>VS Code, Git, GitHub, Netlify</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section" aria-label="Work">
+      <div class="container section-grid">
+        <div class="projects-left-col">
+          <h2 class="section-title split">Work</h2>
+          <img class="pixel-buddy coder-buddy" src="assets/characters/coder.png"
+            alt="Pixel-art character working at a computer" width="220" height="130" loading="lazy">
+        </div>
+        <div id="projects-list" class="projects" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section" aria-label="Contact">
+      <div class="container section-grid">
+        <h2 class="section-title split">Contact</h2>
+        <div class="contact-content">
+          <div class="contact-heading-row">
+            <p class="contact-heading" data-reveal>Want to work together?</p>
+            <img class="pixel-buddy phone-buddy" src="assets/characters/phone.png"
+              alt="Pixel-art character relaxing while using a phone" width="255" height="115" loading="lazy">
+          </div>
+          <p class="contact-lead" data-reveal>I&rsquo;m looking for internships, small freelance projects and people to
+            learn from. Write to me and I&rsquo;ll reply within a couple of days.</p>
+          <a href="mailto:arnavmgandhi@gmail.com" class="contact-mail" data-reveal>arnavmgandhi@gmail.com</a>
+          <ul class="contact-elsewhere" data-reveal>
+            <li><a href="https://github.com/arnavmgandhi" target="_blank" rel="noopener noreferrer">GitHub <span
+                  class="arrow" aria-hidden="true">&nearr;</span></a></li>
+            <li><a href="https://www.linkedin.com/in/arnavmgandhi/" target="_blank" rel="noopener noreferrer">LinkedIn
+                <span class="arrow" aria-hidden="true">&nearr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-content">
+      <p>&copy; <span data-year>2026</span> Arnav, Pune</p>
+      <a href="#hero" class="link">Back to top <span class="arrow" aria-hidden="true">&uarr;</span></a>
+    </div>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

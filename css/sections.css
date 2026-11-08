@@ -1,0 +1,399 @@
+/**
+ * SECTIONS
+ */
+
+.section { padding-block: var(--section-pad); border-top: 1px solid var(--rule); }
+.section-grid { display: grid; gap: 2.5rem; }
+.section-title { font-size: clamp(2rem, 1.3rem + 2.2vw, 3.25rem); }
+
+@media (min-width: 900px) {
+  .section-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 3rem; }
+  .section-title { position: sticky; top: calc(var(--header-h) + 1.5rem); align-self: start; }
+}
+
+/* ===== Hero ===== */
+.hero-section {
+  min-height: 100svh;
+  border-top: 0;
+  padding-top: calc(var(--header-h) + 2rem);
+  padding-bottom: clamp(2rem, 5vh, 3.5rem);
+  display: flex;
+  flex-direction: column;
+}
+.hero-section > .container { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(3rem, 9vh, 5.5rem); }
+.hero-name { font-size: var(--fs-h1); line-height: 1.02; letter-spacing: -0.03em; max-width: 19ch; }
+.hero-name .accent { color: var(--accent); }
+
+/* Hero title row — name left, ramen buddy right */
+.hero-title-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(200px, 28vw, 360px);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 4rem);
+}
+.hero-title-row .hero-name { max-width: 15ch; }
+.ramen-buddy {
+  width: 100%;
+  max-height: 360px;
+  justify-self: end;
+  animation-delay: -0.8s;
+}
+
+.hero-foot { display: grid; gap: 2rem; align-items: end; padding-top: 1.75rem; border-top: 1px solid var(--rule); }
+.hero-intro { max-width: 44ch; color: var(--ink-soft); font-size: 1.1rem; }
+.hero-cta-group { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; }
+@media (min-width: 820px) { .hero-foot { grid-template-columns: 1fr auto; } }
+
+/* ===== Marquee (speed + direction follow scroll, see main.js) ===== */
+.marquee { border-block: 1px solid var(--ink); overflow: hidden; padding-block: 1.2rem; }
+.marquee-track { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 3rem); width: max-content; will-change: transform; }
+.marquee span { font-family: var(--font-display); font-size: clamp(2.2rem, 1rem + 4.4vw, 4.75rem); line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+.marquee i { width: 0.8rem; height: 0.8rem; background: var(--accent); border-radius: 50%; flex: none; }
+
+/* ===== About ===== */
+.about-lead { font-family: var(--font-display); font-size: var(--fs-lead); line-height: 1.25; letter-spacing: -0.015em; max-width: 26em; }
+.about-body { display: grid; gap: 1.1rem; margin-top: 2.5rem; max-width: 56ch; color: var(--ink-soft); }
+
+.facts { margin-top: 3.5rem; border-top: 1px solid var(--rule); }
+.fact { display: grid; gap: 0.2rem 2rem; padding-block: 1.1rem; border-bottom: 1px solid var(--rule); }
+.fact dt { color: var(--muted); }
+@media (min-width: 640px) { .fact { grid-template-columns: 12rem 1fr; } }
+
+/* ===== Skills ===== */
+.skill-list { border-top: 1px solid var(--ink); }
+.skill-row {
+  position: relative; display: grid; gap: 0.4rem 2rem; padding-block: 1.6rem;
+  border-bottom: 1px solid var(--rule);
+  transition: padding-left var(--t-base) var(--ease-out);
+}
+.skill-row::after {
+  content: ''; position: absolute; inset: 0 auto 0 0; width: 100%; background: var(--bg-sunk); z-index: -1;
+  transform: scaleY(0); transform-origin: bottom; transition: transform 600ms var(--ease-out);
+}
+.skill-row:hover { padding-left: 1rem; }
+.skill-row:hover::after { transform: scaleY(1); }
+.skill-name { font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.5rem); }
+.skill-desc { color: var(--ink-soft); max-width: 46ch; }
+@media (min-width: 760px) { .skill-row { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: baseline; } }
+.skills-wrap { isolation: isolate; }
+
+.toolkit { margin-top: 3.5rem; }
+
+/* ===== Work ===== */
+.projects { display: grid; gap: 2rem; }
+.project { display: block; position: relative; }
+
+.project-media {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 6px;
+  background: var(--tile, var(--bg-sunk)); color: var(--tile-ink, var(--ink));
+}
+.js .project .project-media { clip-path: inset(100% 0 0 0); transition: clip-path 1300ms var(--ease-out); }
+.js .project.is-in .project-media { clip-path: inset(0 0 0 0); }
+
+.tile-par { position: absolute; inset: -9% 0; display: grid; place-items: center; will-change: transform; }
+.tile-par img { width: 100%; height: 100%; object-fit: cover; transition: transform 1400ms var(--ease-out); }
+.project:hover .tile-par img { transform: scale(1.05); }
+.tile-glyph { font-family: var(--font-display); font-size: clamp(5rem, 12vw, 10rem); line-height: 1; letter-spacing: -0.04em; transition: transform 1300ms var(--ease-out); user-select: none; }
+.project:hover .tile-glyph { transform: scale(1.07) rotate(-2deg); }
+
+.project-info { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-top: 1rem; }
+.project-title { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem); letter-spacing: -0.025em; transition: transform var(--t-base) var(--ease-out); }
+.project:hover .project-title { transform: translateX(0.6rem); }
+.project-arrow {
+  flex: none; width: clamp(2.25rem, 3vw, 3rem); aspect-ratio: 1; display: grid; place-items: center;
+  border: 1px solid var(--rule-strong); border-radius: 50%; font-size: 1.1rem;
+  transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease), border-color var(--t-base) var(--ease), transform 700ms var(--ease-out);
+}
+.project-arrow span { display: block; transition: transform 700ms var(--ease-out); }
+.project:hover .project-arrow { background: var(--ink); color: var(--bg); border-color: var(--ink); transform: rotate(45deg); }
+.project-desc { margin-top: 0.5rem; max-width: 52ch; color: var(--ink-soft); }
+.project-line { height: 1px; background: var(--ink); margin-top: 1rem; transform: scaleX(0); transform-origin: left; transition: transform 900ms var(--ease-out); }
+
+@media (min-width: 640px) {
+  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.project:hover .project-line { transform: scaleX(1); }
+
+/* ===== Contact (inverted block) ===== */
+.contact-section {
+  --bg: #16140f; --ink: #ece7db; --ink-soft: #cfc9ba; --muted: #958f80;
+  --rule: rgba(236, 231, 219, 0.16); --rule-strong: rgba(236, 231, 219, 0.4); --accent: #e4694a;
+  background: var(--bg); color: var(--ink); border-top: 0;
+}
+.contact-heading { line-height: 1.05; font-family: var(--font-display); font-size: var(--fs-h2); letter-spacing: -0.03em; max-width: 12ch; margin-bottom: 1.75rem; }
+.contact-lead { max-width: 46ch; color: var(--ink-soft); font-size: 1.1rem; }
+.contact-mail {
+  display: inline-block; margin-top: 2.5rem; font-family: var(--font-display);
+  font-size: clamp(1.45rem, 0.5rem + 4.6vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; overflow-wrap: anywhere;
+  padding-bottom: 0.1em; border-bottom: 1px solid var(--rule-strong);
+  background: linear-gradient(var(--accent), var(--accent)) 0 100% / 0 3px no-repeat;
+  transition: background-size 800ms var(--ease-out), color var(--t-base) var(--ease);
+}
+.contact-mail:hover { background-size: 100% 3px; color: var(--accent); }
+
+.contact-elsewhere { margin-top: clamp(3rem, 6vw, 5rem); max-width: 40rem; }
+.contact-elsewhere li { border-bottom: 1px solid var(--rule); }
+.contact-elsewhere li:first-child { border-top: 1px solid var(--rule); }
+.contact-elsewhere a {
+  display: flex; justify-content: space-between; align-items: baseline; padding-block: 1.1rem;
+  font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);
+  transition: padding-left var(--t-base) var(--ease-out), color var(--t-base) var(--ease);
+}
+.contact-elsewhere a:hover { padding-left: 0.75rem; color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .project .project-media { clip-path: none; transition: none; }
+  .tile-par { transform: none !important; }
+}
+
+/* ===== Pixel-art buddies ===== */
+.pixel-buddy {
+  display: block;
+  object-fit: contain;
+  image-rendering: pixelated;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.3));
+  animation: buddy-float 3.2s ease-in-out infinite;
+}
+
+/* Shared left-column wrapper used by About, Skills, Projects.
+   Holds the section title on top and a buddy below — the whole
+   thing sticks as the right-hand content scrolls past. */
+.section-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 900px) {
+  .section-left-col {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    align-self: start;
+  }
+  /* Sections using .section-left-col own their title's stickiness
+     via the wrapper — disable the generic section-title sticky rule */
+  .section-left-col .section-title {
+    position: static;
+    top: auto;
+  }
+}
+
+/* ----- About buddy (reader — sits cross-legged with a book) ----- */
+.about-buddy {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  animation-delay: -0.4s;
+}
+
+/* ----- Skills buddy (wizard — wand + sparkles) ----- */
+.skills-buddy {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  animation-delay: -2.8s;
+}
+
+/* ----- Projects section: .projects-left-col is the same pattern ----- */
+/* Override the standard section-grid for the projects section so the
+   left column is a flex column (title on top, coder below, both sticky). */
+.projects-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 900px) {
+  .projects-left-col {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    align-self: start;
+  }
+  #projects .section-title {
+    position: static;
+    top: auto;
+  }
+}
+
+.coder-buddy {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  animation-delay: -1.5s;
+}
+
+/* ----- Phone (Contact) ----- */
+.contact-content { position: relative; min-width: 0; }
+
+/* Row that holds the heading text on the left and phone guy on the right */
+.contact-heading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+/* contact-heading already has margin-bottom in the original; remove it here since the row handles spacing */
+.contact-heading-row .contact-heading { margin-bottom: 0; }
+
+.phone-buddy {
+  width: clamp(140px, 20vw, 240px);
+  height: auto;
+  flex-shrink: 0;
+  animation-delay: -2.1s;
+}
+
+@keyframes buddy-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ----- Responsive tweaks ----- */
+@media (max-width: 899px) {
+  .hero-title-row { grid-template-columns: minmax(0, 1fr) minmax(150px, 30%); }
+  .ramen-buddy { max-height: 260px; }
+  .section-left-col,
+  .projects-left-col { gap: 1.25rem; }
+}
+
+@media (max-width: 640px) {
+  .hero-title-row { grid-template-columns: minmax(0, 1fr) minmax(110px, 34%); gap: 0.75rem; }
+  .ramen-buddy { max-height: 180px; }
+  .hero-name { font-size: clamp(2.5rem, 11vw, 4rem); }
+
+  /* On mobile all left cols go back to a side-by-side row */
+  .section-left-col,
+  .projects-left-col {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    position: static;
+  }
+  .section-left-col .section-title,
+  .projects-left-col .section-title { flex: 1 1 auto; min-width: 0; }
+
+  .about-buddy,
+  .skills-buddy,
+  .coder-buddy { width: min(140px, 42%); flex-shrink: 0; }
+
+  .phone-buddy { width: min(160px, 40%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-buddy { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   BUDDY INTERACTIVITY
+   ─────────────────────────────────────────────────────
+   Reaction bubble + excited bounce + konami party mode
+═══════════════════════════════════════════════════════ */
+
+/* Excited bounce — added via JS on hover */
+@keyframes buddy-excited {
+  0%   { transform: translateY(0) rotate(0deg); }
+  20%  { transform: translateY(-18px) rotate(-6deg); }
+  40%  { transform: translateY(-8px)  rotate( 5deg); }
+  60%  { transform: translateY(-14px) rotate(-4deg); }
+  80%  { transform: translateY(-4px)  rotate( 2deg); }
+  100% { transform: translateY(0)     rotate(0deg); }
+}
+
+.pixel-buddy.buddy-excited {
+  animation: buddy-excited 0.7s var(--ease-out) forwards !important;
+}
+
+/* Konami party — fast spin + scale pop */
+@keyframes buddy-party {
+  0%   { transform: rotate(0deg)   scale(1);   }
+  25%  { transform: rotate(90deg)  scale(1.15);}
+  50%  { transform: rotate(180deg) scale(1);   }
+  75%  { transform: rotate(270deg) scale(1.15);}
+  100% { transform: rotate(360deg) scale(1);   }
+}
+.pixel-buddy.buddy-party {
+  animation: buddy-party 0.5s linear infinite !important;
+}
+
+/* ── Reaction bubble ── */
+.buddy-bubble {
+  position: absolute;
+  /* sits above the character, in the left column */
+  bottom: calc(100% - 1rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px) scale(0.6);
+  opacity: 0;
+  transition: opacity 200ms var(--ease), transform 280ms var(--ease-out);
+
+  /* Pixel speech bubble shape */
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0.45rem 0.7rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+
+  /* Pixel-art style tail */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+}
+.buddy-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+
+.buddy-bubble--star  { font-size: 1.2rem; }
+.buddy-bubble--thought { font-size: 1rem; letter-spacing: 0.08em; }
+
+.buddy-bubble--show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* ── Konami overlay ── */
+@keyframes konami-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.konami-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  animation: konami-in 300ms var(--ease-out) both;
+  pointer-events: none;
+}
+.konami-overlay--out { animation: konami-in 300ms var(--ease-out) reverse both; }
+
+.konami-msg {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 4rem);
+  color: #ffe066;
+  line-height: 1.3;
+  text-shadow: 0 0 30px rgba(255,224,102,0.6);
+  pointer-events: none;
+}
+.konami-msg small {
+  display: block;
+  font-size: 0.4em;
+  color: var(--ink-soft);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  text-shadow: none;
+}
